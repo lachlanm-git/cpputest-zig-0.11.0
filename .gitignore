@@ -103,3 +103,7 @@ generated/
 
 # Builds
 /cpputest_build/
+
+# Zig
+zig-out/
+zig-cache/

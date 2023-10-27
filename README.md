@@ -1,3 +1,14 @@
+# Fork notes
+This is a fork of CppUTest to play with utilising the Zig (0.11.0) build system.  
+  
+**[!]** Once Zig +0.12.0 lands, this fork should no longer be kept around and can be moved to using the Zig package manager (build.zig + build.zig.zon).  
+
+**Why?**  
+1. Because I think the Zig build system is objectively (OK, maybe subjectively) the nicest and easiest C/C++ toolchain - especially for cross-platform and low-dependency use-cases.
+2. A learning experience (for me) with the Zig build system that may prove useful for my own needs. 
+3. Windows. I've had little success with this project on Windows other than WSL2. I don't want to deal with VS Studio and alternate systems like Cygwin...
+4. I like `build.zig` over `makefile`, etc. Simpler cross-platform handling too.
+
 # CppUTest
 
 [![GitHub Actions](https://github.com/cpputest/cpputest/actions/workflows/basic.yml/badge.svg)](https://github.com/cpputest/cpputest/actions/workflows/basic.yml)
