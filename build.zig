@@ -45,7 +45,7 @@ pub fn build(b: *std.Build) void {
         "examples/AllTests/MockDocumentationTest.cpp",
         "examples/AllTests/PrinterTest.cpp",
     }, &.{
-        // "--coverage",
+        "--coverage",
 
         // `--coverage` equivalent to the following (?):
         // "-fprofile-arcs",
