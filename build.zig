@@ -24,32 +24,36 @@ pub fn build(b: *std.Build) void {
     exe.linkLibC();
     exe.linkLibCpp();
     exe.linkLibrary(libcpputest);
-    exe.addIncludePath(.{ .path = "include" });
-    exe.addIncludePath(.{ .path = "examples/ApplicationLib" });
-    exe.addIncludePath(.{ .path = "examples/AllTests" });
+    exe.addIncludePath(b.path("include"));
+    exe.addIncludePath(b.path("examples/ApplicationLib"));
+    exe.addIncludePath(b.path("examples/AllTests"));
 
     // CPPUTEST_USE_GCOV, -lgcov
-    exe.addCSourceFiles(&.{
-        // the "application" to be put under test
-        "examples/ApplicationLib/CircularBuffer.cpp",
-        "examples/ApplicationLib/EventDispatcher.cpp",
-        "examples/ApplicationLib/hello.c",
-        "examples/ApplicationLib/Printer.cpp",
+    exe.addCSourceFiles(.{
+        .root = b.path("."),
+        .files = &.{
+            // the "application" to be put under test
+            "examples/ApplicationLib/CircularBuffer.cpp",
+            "examples/ApplicationLib/EventDispatcher.cpp",
+            "examples/ApplicationLib/hello.c",
+            "examples/ApplicationLib/Printer.cpp",
 
-        // unit test cource code
-        "examples/AllTests/AllTests.cpp",
-        "examples/AllTests/CircularBufferTest.cpp",
-        "examples/AllTests/EventDispatcherTest.cpp",
-        "examples/AllTests/FEDemoTest.cpp",
-        "examples/AllTests/HelloTest.cpp",
-        "examples/AllTests/MockDocumentationTest.cpp",
-        "examples/AllTests/PrinterTest.cpp",
-    }, &.{
-        "--coverage",
+            // unit test cource code
+            "examples/AllTests/AllTests.cpp",
+            "examples/AllTests/CircularBufferTest.cpp",
+            "examples/AllTests/EventDispatcherTest.cpp",
+            "examples/AllTests/FEDemoTest.cpp",
+            "examples/AllTests/HelloTest.cpp",
+            "examples/AllTests/MockDocumentationTest.cpp",
+            "examples/AllTests/PrinterTest.cpp",
+        },
+        .flags = &.{
+            "--coverage",
 
-        // `--coverage` equivalent to the following (?):
-        // "-fprofile-arcs",
-        // "-ftest-coverage",
+            // `--coverage` equivalent to the following (?):
+            // "-fprofile-arcs",
+            // "-ftest-coverage",
+        },
     });
 
     b.installArtifact(exe);
@@ -69,72 +73,80 @@ pub fn build(b: *std.Build) void {
     run_step.dependOn(&run_cmd.step);
 }
 
-fn build_cpputest(b: *std.Build, libtarget: std.zig.CrossTarget) *std.Build.CompileStep {
+fn build_cpputest(b: *std.Build, libtarget: std.Build.ResolvedTarget) *std.Build.Step.Compile {
     const lib = b.addStaticLibrary(.{
         .name = "cpputest",
         .target = libtarget,
         .optimize = std.builtin.Mode.ReleaseSafe,
+        .strip = true,
     });
 
     lib.linkLibCpp();
-    lib.strip = true;
+    // lib.strip = true;
 
-    lib.addIncludePath(.{ .path = "include" });
+    lib.addIncludePath(b.path("include"));
 
     if (debug_print_build_info) print_build_info(lib);
 
-    const t = lib.target_info.target;
+    const t = lib.rootModuleTarget(); // lib.target_info.target;
 
-    lib.addCSourceFiles(&.{
-        // CppUTest
-        "src/CppUTest/CommandLineArguments.cpp",
-        "src/CppUTest/CommandLineTestRunner.cpp",
-        "src/CppUTest/JUnitTestOutput.cpp",
-        "src/CppUTest/TeamCityTestOutput.cpp",
-        "src/CppUTest/MemoryLeakDetector.cpp",
-        "src/CppUTest/MemoryLeakWarningPlugin.cpp",
-        "src/CppUTest/SimpleMutex.cpp",
-        "src/CppUTest/SimpleString.cpp",
-        "src/CppUTest/SimpleStringInternalCache.cpp",
-        "src/CppUTest/TestFailure.cpp",
-        "src/CppUTest/TestFilter.cpp",
-        "src/CppUTest/TestHarness_c.cpp",
-        "src/CppUTest/TestMemoryAllocator.cpp",
-        "src/CppUTest/TestOutput.cpp",
-        "src/CppUTest/TestPlugin.cpp",
-        "src/CppUTest/TestRegistry.cpp",
-        "src/CppUTest/TestResult.cpp",
-        "src/CppUTest/TestTestingFixture.cpp",
-        "src/CppUTest/Utest.cpp",
+    lib.addCSourceFiles(.{
+        .root = b.path("."),
+        .files = &.{
+            // CppUTest
+            "src/CppUTest/CommandLineArguments.cpp",
+            "src/CppUTest/CommandLineTestRunner.cpp",
+            "src/CppUTest/JUnitTestOutput.cpp",
+            "src/CppUTest/TeamCityTestOutput.cpp",
+            "src/CppUTest/MemoryLeakDetector.cpp",
+            "src/CppUTest/MemoryLeakWarningPlugin.cpp",
+            "src/CppUTest/SimpleMutex.cpp",
+            "src/CppUTest/SimpleString.cpp",
+            "src/CppUTest/SimpleStringInternalCache.cpp",
+            "src/CppUTest/TestFailure.cpp",
+            "src/CppUTest/TestFilter.cpp",
+            "src/CppUTest/TestHarness_c.cpp",
+            "src/CppUTest/TestMemoryAllocator.cpp",
+            "src/CppUTest/TestOutput.cpp",
+            "src/CppUTest/TestPlugin.cpp",
+            "src/CppUTest/TestRegistry.cpp",
+            "src/CppUTest/TestResult.cpp",
+            "src/CppUTest/TestTestingFixture.cpp",
+            "src/CppUTest/Utest.cpp",
 
-        // CppUTestExt
-        "src/CppUTestExt/CodeMemoryReportFormatter.cpp",
-        "src/CppUTestExt/GTest.cpp",
-        "src/CppUTestExt/IEEE754ExceptionsPlugin.cpp",
-        "src/CppUTestExt/MemoryReportAllocator.cpp",
-        "src/CppUTestExt/MemoryReporterPlugin.cpp",
-        "src/CppUTestExt/MemoryReportFormatter.cpp",
-        "src/CppUTestExt/MockActualCall.cpp",
-        "src/CppUTestExt/MockExpectedCall.cpp",
-        "src/CppUTestExt/MockExpectedCallsList.cpp",
-        "src/CppUTestExt/MockFailure.cpp",
-        "src/CppUTestExt/MockNamedValue.cpp",
-        "src/CppUTestExt/MockSupport.cpp",
-        "src/CppUTestExt/MockSupportPlugin.cpp",
-        "src/CppUTestExt/MockSupport_c.cpp",
-        "src/CppUTestExt/OrderedTest.cpp",
-    }, &.{"-Werror"});
+            // CppUTestExt
+            "src/CppUTestExt/CodeMemoryReportFormatter.cpp",
+            "src/CppUTestExt/GTest.cpp",
+            "src/CppUTestExt/IEEE754ExceptionsPlugin.cpp",
+            "src/CppUTestExt/MemoryReportAllocator.cpp",
+            "src/CppUTestExt/MemoryReporterPlugin.cpp",
+            "src/CppUTestExt/MemoryReportFormatter.cpp",
+            "src/CppUTestExt/MockActualCall.cpp",
+            "src/CppUTestExt/MockExpectedCall.cpp",
+            "src/CppUTestExt/MockExpectedCallsList.cpp",
+            "src/CppUTestExt/MockFailure.cpp",
+            "src/CppUTestExt/MockNamedValue.cpp",
+            "src/CppUTestExt/MockSupport.cpp",
+            "src/CppUTestExt/MockSupportPlugin.cpp",
+            "src/CppUTestExt/MockSupport_c.cpp",
+            "src/CppUTestExt/OrderedTest.cpp",
+        },
+        .flags = &.{"-Werror"},
+    });
 
-    lib.addCSourceFiles(switch (t.os.tag) {
-        .windows => &.{"src/Platforms/Dos/UtestPlatform.cpp"},
-        .linux, .macos => &.{"src/Platforms/Gcc/UtestPlatform.cpp"},
-        else => unreachable, // @panic("can only support Windows or Linux")
-    }, &.{});
+    lib.addCSourceFiles(.{
+        .root = b.path("."),
+        .files = switch (t.os.tag) {
+            .windows => &.{"src/Platforms/Dos/UtestPlatform.cpp"},
+            .linux, .macos => &.{"src/Platforms/Gcc/UtestPlatform.cpp"},
+            else => unreachable, // @panic("can only support Windows or Linux")
+        },
+    });
 
     return lib;
 }
 
-fn print_build_info(lib: *std.Build.CompileStep) void {
+fn print_build_info(lib: *std.Build.Step.Compile) void {
     // tested:
     // -Dtarget=x86-windows-gnu
     // -Dtarget=x86-linux-musl
@@ -145,10 +157,10 @@ fn print_build_info(lib: *std.Build.CompileStep) void {
     //  -Dtarget=x86-macos-none
     std.debug.print("{s}:\n", .{lib.name});
 
-    const t = lib.target_info.target;
+    const t = lib.rootModuleTarget(); // lib.target_info.target;
     std.debug.print("  os/target: {}\n", .{t.os.tag});
 
     // -Doptimize=ReleaseFast
     // -Doptimize=ReleaseSafe
-    std.debug.print("  release-mode: {}\n", .{lib.optimize});
+    std.debug.print("  release-mode: {s}\n", .{@tagName(lib.root_module.optimize.?)});
 }

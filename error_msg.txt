@@ -1,0 +1,350 @@
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__utility/no_destroy.h:47:10: error: type name requires a specifier or qualifier
+    new (&__obj_) _Tp(std::forward<_Args>(__args)...);
+         ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:526:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:526:
+#include <__functional/boyer_moore_searcher.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/boyer_moore_searcher.h:27:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/boyer_moore_searcher.h:27:
+#include <vector>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/vector:325:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/vector:325:
+#include <__format/formatter_bool.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_bool.h:20:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_bool.h:20:
+#include <__format/formatter_integral.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_integral.h:35:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_integral.h:35:
+#  include <locale>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/locale:202:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/locale:202:
+#include <__locale>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__locale:18:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__locale:18:
+#include <__utility/no_destroy.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__utility/no_destroy.h:47:11: error: expected ')'
+    new (&__obj_) _Tp(std::forward<_Args>(__args)...);
+          ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:526:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:526:
+#include <__functional/boyer_moore_searcher.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/boyer_moore_searcher.h:27:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/boyer_moore_searcher.h:27:
+#include <vector>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/vector:325:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/vector:325:
+#include <__format/formatter_bool.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_bool.h:20:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_bool.h:20:
+#include <__format/formatter_integral.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_integral.h:35:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__format/formatter_integral.h:35:
+#  include <locale>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/locale:202:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/locale:202:
+#include <__locale>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__locale:18:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__locale:18:
+#include <__utility/no_destroy.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__utility/no_destroy.h:47:9: note: to match this '('
+    new (&__obj_) _Tp(std::forward<_Args>(__args)...);
+        ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:178:12: error: type name requires a specifier or qualifier
+    ::new ((void*)__hold.get()) __alloc_func(__f_.first(), _Alloc(__a));
+           ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:178:19: error: expected ')'
+    ::new ((void*)__hold.get()) __alloc_func(__f_.first(), _Alloc(__a));
+                  ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:178:11: note: to match this '('
+    ::new ((void*)__hold.get()) __alloc_func(__f_.first(), _Alloc(__a));
+          ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:213:57: error: type name requires a specifier or qualifier
+    __default_alloc_func* __res                = ::new ((void*)__hold.get()) __default_alloc_func(__f_);
+                                                        ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:213:64: error: expected ')'
+    __default_alloc_func* __res                = ::new ((void*)__hold.get()) __default_alloc_func(__f_);
+                                                               ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:213:56: note: to match this '('
+    __default_alloc_func* __res                = ::new ((void*)__hold.get()) __default_alloc_func(__f_);
+                                                       ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:286:10: error: type name requires a specifier or qualifier
+  ::new ((void*)__hold.get()) __func(__f_.__target(), _Alloc(__a));
+         ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:286:17: error: expected ')'
+  ::new ((void*)__hold.get()) __func(__f_.__target(), _Alloc(__a));
+                ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:286:9: note: to match this '('
+  ::new ((void*)__hold.get()) __func(__f_.__target(), _Alloc(__a));
+        ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:292:10: error: type name requires a specifier or qualifier
+  ::new ((void*)__p) __func(__f_.__target(), __f_.__get_allocator());
+         ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:292:17: error: expected ')'
+  ::new ((void*)__p) __func(__f_.__target(), __f_.__get_allocator());
+                ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:292:9: note: to match this '('
+  ::new ((void*)__p) __func(__f_.__target(), __f_.__get_allocator());
+        ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:359:23: error: type name requires a specifier or qualifier
+        __f_ = ::new ((void*)&__buf_) _Fun(std::move(__f), _Alloc(__af));
+                      ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:359:31: error: expected ')'
+        __f_ = ::new ((void*)&__buf_) _Fun(std::move(__f), _Alloc(__af));
+                              ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:359:22: note: to match this '('
+        __f_ = ::new ((void*)&__buf_) _Fun(std::move(__f), _Alloc(__af));
+                     ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:363:16: error: type name requires a specifier or qualifier
+        ::new ((void*)__hold.get()) _Fun(std::move(__f), _Alloc(__a));
+               ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:363:23: error: expected ')'
+        ::new ((void*)__hold.get()) _Fun(std::move(__f), _Alloc(__a));
+                      ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:363:15: note: to match this '('
+        ::new ((void*)__hold.get()) _Fun(std::move(__f), _Alloc(__a));
+              ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:648:16: error: type name requires a specifier or qualifier
+        ::new ((void*)&__buf_.__small) _Fun(std::move(__f), _Alloc(__af));
+               ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:648:24: error: expected ')'
+        ::new ((void*)&__buf_.__small) _Fun(std::move(__f), _Alloc(__af));
+                       ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:648:15: note: to match this '('
+        ::new ((void*)&__buf_.__small) _Fun(std::move(__f), _Alloc(__af));
+              ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:652:16: error: type name requires a specifier or qualifier
+        ::new ((void*)__hold.get()) _Fun(std::move(__f), _Alloc(__af));
+               ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:652:23: error: expected ')'
+        ::new ((void*)__hold.get()) _Fun(std::move(__f), _Alloc(__af));
+                      ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:652:15: note: to match this '('
+        ::new ((void*)__hold.get()) _Fun(std::move(__f), _Alloc(__af));
+              ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/__functional/function.h:666:16: error: type name requires a specifier or qualifier
+        ::new ((void*)&__buf_.__small) _Fun(std::move(__f));
+               ^
+E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples/AllTests/EventDispatcherTest.cpp:30:
+#include "EventDispatcher.h"
+         ^
+E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:10: note: in file included from E:\Git\cpputest-zig-0.11.0\examples\ApplicationLib/EventDispatcher.h:31:
+#include <list>
+         ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:12: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/list:1757:
+#  include <functional>
+           ^
+C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:10: note: in file included from C:\Zig\zigup.windows-latest-x86_64\zig\0.13.0\files\lib\libcxx\include/functional:529:
+#include <__functional/function.h>
+         ^
+:1:1: error: too many errors emitted, stopping now
+error: the following command failed with 20 compilation errors:
