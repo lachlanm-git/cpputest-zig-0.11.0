@@ -33,8 +33,8 @@
       "name": "clang-tidy",
       "inherits": ["Clang"],
       "cacheVariables": {
-        "CMAKE_CXX_CLANG_TIDY": "clang-tidy",
-        "CMAKE_C_CLANG_TIDY": "clang-tidy"
+        "CMAKE_CXX_CLANG_TIDY": "clang-tidy;-header-filter=.*",
+        "CMAKE_C_CLANG_TIDY": "clang-tidy;-header-filter=.*"
       }
     },
     {
@@ -131,8 +131,7 @@
       "name": "asan",
       "inherits": ["Clang"],
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "CPPUTEST_MEM_LEAK_DETECTION_DISABLED": true
+        "CMAKE_BUILD_TYPE": "Debug"
       },
       "environment": {
         "CFLAGS": "-fsanitize=address -fno-omit-frame-pointer",

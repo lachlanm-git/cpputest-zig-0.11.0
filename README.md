@@ -31,6 +31,8 @@ Building from source (Unix-based, Cygwin, MacOS):
 
 ```bash
 git clone https://github.com/cpputest/cpputest.git
+cd cpputest
+mkdir cpputest_build
 cd cpputest_build
 autoreconf .. -i
 ../configure
@@ -43,6 +45,8 @@ You can also use CMake, which also works for Windows Visual Studio.
 
 ```bash
 git clone https://github.com/cpputest/cpputest.git
+cd cpputest
+mkdir cpputest_build
 cmake -B cpputest_build
 cmake --build cpputest_build
 ```

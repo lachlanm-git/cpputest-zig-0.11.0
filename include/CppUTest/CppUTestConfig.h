@@ -94,21 +94,23 @@
 /* Should be the only #include here. Standard C library wrappers */
 #include "StandardCLibrary.h"
 
-/* Create a _no_return_ macro, which is used to flag a function as not returning.
+/* Create a CPPUTEST_NORETURN macro, which is used to flag a function as not returning.
  * Used for functions that always throws for instance.
  *
  * This is needed for compiling with clang, without breaking other compilers.
  */
 #ifndef __has_attribute
-  #define __has_attribute(x) 0
+  #define CPPUTEST_HAS_ATTRIBUTE(x) 0
+#else
+  #define CPPUTEST_HAS_ATTRIBUTE(x) __has_attribute(x)
 #endif
 
 #if defined (__cplusplus) && __cplusplus >= 201103L
-   #define _no_return_ [[noreturn]]
-#elif __has_attribute(noreturn)
-   #define _no_return_ __attribute__((noreturn))
+   #define CPPUTEST_NORETURN [[noreturn]]
+#elif CPPUTEST_HAS_ATTRIBUTE(noreturn)
+   #define CPPUTEST_NORETURN __attribute__((noreturn))
 #else
-   #define _no_return_
+   #define CPPUTEST_NORETURN
 #endif
 
 #if defined(__MINGW32__)
@@ -117,10 +119,10 @@
 #define CPPUTEST_CHECK_FORMAT_TYPE printf
 #endif
 
-#if __has_attribute(format)
-  #define _check_format_(type, format_parameter, other_parameters) __attribute__ ((format (type, format_parameter, other_parameters)))
+#if CPPUTEST_HAS_ATTRIBUTE(format)
+  #define CPPUTEST_CHECK_FORMAT(type, format_parameter, other_parameters) __attribute__ ((format (type, format_parameter, other_parameters)))
 #else
-  #define _check_format_(type, format_parameter, other_parameters) /* type, format_parameter, other_parameters */
+  #define CPPUTEST_CHECK_FORMAT(type, format_parameter, other_parameters) /* type, format_parameter, other_parameters */
 #endif
 
 #if defined(__cplusplus) && __cplusplus >= 201103L
@@ -134,32 +136,24 @@
  * To check whether it is on or off, we create a CppUTest define here.
 */
 #if defined(__has_feature)
-#if __has_feature(address_sanitizer)
-#define CPPUTEST_SANITIZE_ADDRESS 1
-#endif
-#endif
-
-#ifdef __SANITIZE_ADDRESS__
-#define CPPUTEST_SANITIZE_ADDRESS 1
+  #if __has_feature(address_sanitizer)
+    #define CPPUTEST_SANITIZE_ADDRESS 1
+  #endif
+#elif defined(__SANITIZE_ADDRESS__)
+  #define CPPUTEST_SANITIZE_ADDRESS 1
 #endif
 
 #ifndef CPPUTEST_SANITIZE_ADDRESS
-#define CPPUTEST_SANITIZE_ADDRESS 0
+  #define CPPUTEST_SANITIZE_ADDRESS 0
 #endif
 
 #if CPPUTEST_SANITIZE_ADDRESS
-#define CPPUTEST_SANITIZE_ADDRESS 1
-#define CPPUTEST_DO_NOT_SANITIZE_ADDRESS __attribute__((no_sanitize_address))
-  #if defined(__linux__) && defined(__clang__)
-    #if CPPUTEST_USE_MEM_LEAK_DETECTION
-    #warning Compiling with Address Sanitizer with clang on linux will cause duplicate symbols for operator new. Turning off memory leak detection. Compile with -DCPPUTEST_MEM_LEAK_DETECTION_DISABLED to get rid of this warning.
-    #undef CPPUTEST_USE_MEM_LEAK_DETECTION
-    #define CPPUTEST_USE_MEM_LEAK_DETECTION 0
-    #endif
+  #if defined(__linux__) && defined(__clang__) && CPPUTEST_USE_STD_CPP_LIB && CPPUTEST_USE_MEM_LEAK_DETECTION
+    #warning Compiling with Address Sanitizer with clang on linux may cause duplicate symbols for operator new. Turning off memory leak detection. Compile with -DCPPUTEST_MEM_LEAK_DETECTION_DISABLED to get rid of this warning.
   #endif
+  #define CPPUTEST_DO_NOT_SANITIZE_ADDRESS __attribute__((no_sanitize_address))
 #else
-#define CPPUTEST_SANITIZER_ADDRESS 0
-#define CPPUTEST_DO_NOT_SANITIZE_ADDRESS
+  #define CPPUTEST_DO_NOT_SANITIZE_ADDRESS
 #endif
 
 /*
@@ -341,10 +335,10 @@ typedef struct
 #ifdef __cplusplus
   /* Visual C++ 10.0+ (2010+) supports the override keyword, but doesn't define the C++ version as C++11 */
   #if (__cplusplus >= 201103L) || (defined(_MSC_VER) && (_MSC_VER >= 1600))
-    #define _override override
+    #define CPPUTEST_OVERRIDE override
     #define NULLPTR nullptr
   #else
-    #define _override
+    #define CPPUTEST_OVERRIDE
     #define NULLPTR NULL
   #endif
 #endif
@@ -352,9 +346,9 @@ typedef struct
 #ifdef __cplusplus
   /* Visual C++ 11.0+ (2012+) supports the override keyword on destructors */
   #if (__cplusplus >= 201103L) || (defined(_MSC_VER) && (_MSC_VER >= 1700))
-    #define _destructor_override override
+    #define CPPUTEST_DESTRUCTOR_OVERRIDE override
   #else
-    #define _destructor_override
+    #define CPPUTEST_DESTRUCTOR_OVERRIDE
   #endif
 #endif
 

@@ -173,12 +173,12 @@ static int PlatformSpecificSetJmpImplementation(void (*function) (void* data), v
 }
 
 /*
- * MacOSX clang 3.0 doesn't seem to recognize longjmp and thus complains about _no_return_.
+ * MacOSX clang 3.0 doesn't seem to recognize longjmp and thus complains about CPPUTEST_NORETURN.
  * The later clang compilers complain when it isn't there. So only way is to check the clang compiler here :(
  */
 #ifdef __clang__
  #if !((__clang_major__ == 3) && (__clang_minor__ == 0))
- _no_return_
+ CPPUTEST_NORETURN
  #endif
 #endif
 static void PlatformSpecificLongJmpImplementation()
@@ -198,13 +198,12 @@ void (*PlatformSpecificRestoreJumpBuffer)() = PlatformSpecificRestoreJumpBufferI
 
 ///////////// Time in millis
 
-static long TimeInMillisImplementation()
+static unsigned long TimeInMillisImplementation()
 {
 #ifdef CPPUTEST_HAVE_GETTIMEOFDAY
     struct timeval tv;
-    struct timezone tz;
-    gettimeofday(&tv, &tz);
-    return (long)((tv.tv_sec * 1000) + (time_t)((double)tv.tv_usec * 0.001));
+    gettimeofday(&tv, NULL);
+    return (((unsigned long)tv.tv_sec * 1000) + ((unsigned long)tv.tv_usec / 1000));
 #else
     return 0;
 #endif
@@ -225,7 +224,7 @@ static const char* TimeStringImplementation()
     return dateTime;
 }
 
-long (*GetPlatformSpecificTimeInMillis)() = TimeInMillisImplementation;
+unsigned long (*GetPlatformSpecificTimeInMillis)() = TimeInMillisImplementation;
 const char* (*GetPlatformSpecificTimeString)() = TimeStringImplementation;
 
 /* Wish we could add an attribute to the format for discovering mis-use... but the __attribute__(format) seems to not work on va_list */

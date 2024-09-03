@@ -16,11 +16,13 @@ if(
         -Wswitch-enum
         -Wconversion
         -Wsign-conversion
+        -Wmissing-include-dirs
         -Wno-padded
         -Wno-disabled-macro-expansion
         -Wno-reserved-id-macro
         -Wno-keyword-macro
         -Wno-long-long
+        -Wno-unsafe-buffer-usage
     )
 
     set(WARNING_C_FLAGS

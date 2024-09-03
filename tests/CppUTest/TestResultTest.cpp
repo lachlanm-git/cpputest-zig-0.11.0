@@ -31,7 +31,7 @@
 
 extern "C" {
 
-    static long MockGetPlatformSpecificTimeInMillis()
+    static unsigned long MockGetPlatformSpecificTimeInMillis()
     {
         return 10;
     }
@@ -45,14 +45,14 @@ TEST_GROUP(TestResult)
 
     TestResult* res;
 
-    void setup() _override
+    void setup() CPPUTEST_OVERRIDE
     {
         mock = new StringBufferTestOutput();
         printer = mock;
         res = new TestResult(*printer);
         UT_PTR_SET(GetPlatformSpecificTimeInMillis, MockGetPlatformSpecificTimeInMillis);
     }
-    void teardown() _override
+    void teardown() CPPUTEST_OVERRIDE
     {
         delete printer;
         delete res;

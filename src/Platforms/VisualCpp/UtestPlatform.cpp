@@ -45,7 +45,7 @@ static int VisualCppSetJmp(void (*function) (void* data), void* data)
     return 0;
 }
 
-_no_return_ static void VisualCppLongJmp()
+CPPUTEST_NORETURN static void VisualCppLongJmp()
 {
     jmp_buf_index--;
     longjmp(test_exit_jmp_buf[jmp_buf_index], 1);
@@ -75,7 +75,7 @@ TestOutput::WorkingEnvironment PlatformSpecificGetWorkingEnvironment()
 
 ///////////// Time in millis
 
-static long VisualCppTimeInMillis()
+static unsigned long VisualCppTimeInMillis()
 {
 	static LARGE_INTEGER s_frequency;
 	static const BOOL s_use_qpc = QueryPerformanceFrequency(&s_frequency);
@@ -83,23 +83,23 @@ static long VisualCppTimeInMillis()
 	{
 		LARGE_INTEGER now;
 		QueryPerformanceCounter(&now);
-		return (long)((now.QuadPart * 1000) / s_frequency.QuadPart);
-	} 
-	else 
+		return (unsigned long)((now.QuadPart * 1000) / s_frequency.QuadPart);
+	}
+	else
 	{
 	#ifdef TIMERR_NOERROR
-		return (long)timeGetTime();
+		return (unsigned long)timeGetTime();
 	#else
 		#if !defined(_WIN32_WINNT) || !defined(_WIN32_WINNT_VISTA) || (_WIN32_WINNT < _WIN32_WINNT_VISTA)
-			return (long)GetTickCount();
+			return (unsigned long)GetTickCount();
 		#else
-			return (long)GetTickCount64();
+			return (unsigned long)GetTickCount64();
 		#endif
 	#endif
 	}
 }
 
-long (*GetPlatformSpecificTimeInMillis)() = VisualCppTimeInMillis;
+unsigned long (*GetPlatformSpecificTimeInMillis)() = VisualCppTimeInMillis;
 
 ///////////// Time in String
 

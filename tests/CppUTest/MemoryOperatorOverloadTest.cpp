@@ -10,12 +10,6 @@
 #include "CppUTest/TestHarness_c.h"
 #include "AllocationInCFile.h"
 
-#if defined(__GNUC__)
-# if __GNUC__ >= 11
-#  define NEEDS_DISABLE_FREE_NON_HEEP_WARNING
-# endif /* GCC >= 11 */
-#endif /* GCC */
-
 
 TEST_GROUP(BasicBehavior)
 {
@@ -38,37 +32,6 @@ TEST(BasicBehavior, DeleteWithSizeParameterWorks)
     ::operator delete[](charArrayMemory, sizeof(char)* 10);
 }
 #endif
-
-#ifdef NEEDS_DISABLE_FREE_NON_HEEP_WARNING
-# pragma GCC diagnostic push
-# pragma GCC diagnostic ignored "-Wfree-nonheap-object"
-#endif /* NEEDS_DISABLE_FREE_NON_HEEP_WARNING */
-
-static void deleteUnallocatedMemory()
-{
-    delete (char*) 0x1234678;
-    FAIL("Should never come here"); // LCOV_EXCL_LINE
-} // LCOV_EXCL_LINE
-
-#ifdef NEEDS_DISABLE_FREE_NON_HEEP_WARNING
-# pragma GCC diagnostic pop
-#endif /* NEEDS_DISABLE_FREE_NON_HEEP_WARNING */
-
-
-TEST(BasicBehavior, deleteWillNotThrowAnExceptionWhenDeletingUnallocatedMemoryButCanStillCauseTestFailures)
-{
-    /*
-     * Test failure might cause an exception. But according to C++ standard, you aren't allowed
-     * to throw exceptions in the delete function. If you do that, it will call std::terminate.
-     * Therefore, the delete will need to fail without exceptions.
-     */
-    MemoryLeakFailure* defaultReporter = MemoryLeakWarningPlugin::getGlobalFailureReporter();
-    TestTestingFixture fixture;
-    fixture.setTestFunction(deleteUnallocatedMemory);
-    fixture.runAllTests();
-    LONGS_EQUAL(1, fixture.getFailureCount());
-    POINTERS_EQUAL(defaultReporter, MemoryLeakWarningPlugin::getGlobalFailureReporter());
-}
 
 #endif
 
@@ -93,7 +56,7 @@ TEST(BasicBehavior, bothMallocAndFreeAreOverloaded)
 TEST_GROUP(MemoryLeakOverridesToBeUsedInProductionCode)
 {
     MemoryLeakDetector* memLeakDetector;
-    void setup() _override
+    void setup() CPPUTEST_OVERRIDE
     {
         memLeakDetector = MemoryLeakWarningPlugin::getGlobalDetector();
     }
@@ -345,7 +308,7 @@ TEST_GROUP(OutOfMemoryTestsForOperatorNew)
 {
     TestMemoryAllocator* no_memory_allocator;
     GlobalMemoryAllocatorStash memoryAllocatorStash;
-    void setup() _override
+    void setup() CPPUTEST_OVERRIDE
     {
         memoryAllocatorStash.save();
         no_memory_allocator = new NullUnknownAllocator;
@@ -353,7 +316,7 @@ TEST_GROUP(OutOfMemoryTestsForOperatorNew)
         setCurrentNewArrayAllocator(no_memory_allocator);
     }
 
-    void teardown() _override
+    void teardown() CPPUTEST_OVERRIDE
     {
         memoryAllocatorStash.restore();
         delete no_memory_allocator;

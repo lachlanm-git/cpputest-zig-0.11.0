@@ -30,8 +30,8 @@
 
 #include "CppUTest/Utest.h"
 
-#ifdef GTEST__H_
-#error "Please include this file before you include any other GTest files"
+#ifdef GTEST_H_
+    #error "Please include this file before you include any other GTest files"
 #endif
 
 /*
@@ -63,10 +63,11 @@ class GTestShell : public UtestShell
     ::testing::TestInfo* testinfo_;
     GTestShell* next_;
     GTestFlagsThatAllocateMemory* flags_;
+
 public:
     GTestShell(::testing::TestInfo* testinfo, GTestShell* next, GTestFlagsThatAllocateMemory* flags);
 
-    virtual Utest* createTest() _override;
+    virtual Utest* createTest() CPPUTEST_OVERRIDE;
 
     GTestShell* nextGTest()
     {
@@ -121,7 +122,7 @@ public:
 class GTestFlagsThatAllocateMemory
 {
 public:
-    void storeValuesOfGTestFLags()
+    void storeValuesOfGTestFlags()
     {
         GTestFlagcolor = ::testing::GTEST_FLAG(color);
         GTestFlagfilter = ::testing::GTEST_FLAG(filter);
@@ -145,7 +146,7 @@ public:
         #endif
     }
 
-    void setGTestFLagValuesToNULLToAvoidMemoryLeaks()
+    void setGTestFlagValuesToNULLToAvoidMemoryLeaks()
     {
     #ifndef GTEST_VERSION_GTEST_1_7
         ::testing::GTEST_FLAG(color) = GTEST_NO_STRING_VALUE;
@@ -300,7 +301,7 @@ public:
         ::testing::UnitTest::GetInstance()->impl()->set_current_test_info(NULL);
         delete test_;
 
-        flags_->setGTestFLagValuesToNULLToAvoidMemoryLeaks();
+        flags_->setGTestFlagValuesToNULLToAvoidMemoryLeaks();
         ::testing::internal::DeathTest::set_last_death_test_message(GTEST_NO_STRING_VALUE);
     }
 
@@ -366,7 +367,7 @@ inline void GTestConvertor::createDummyInSequenceToAndFailureReporterAvoidMemory
 inline void GTestConvertor::addAllGTestToTestRegistry()
 {
     createDummyInSequenceToAndFailureReporterAvoidMemoryLeakInGMock();
-    flags_.storeValuesOfGTestFLags();
+    flags_.storeValuesOfGTestFlags();
 
     int argc = 2;
     const char * argv[] = {"NameOfTheProgram", "--gmock_catch_leaked_mocks=0"};
