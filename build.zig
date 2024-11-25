@@ -27,6 +27,9 @@ pub fn build(b: *std.Build) void {
     exe.addIncludePath(.{ .path = "include" });
     exe.addIncludePath(.{ .path = "examples/ApplicationLib" });
     exe.addIncludePath(.{ .path = "examples/AllTests" });
+    exe.addObjectFile(.{
+        .path = "zig-out/lib/clang_rt.profile-x86_64.lib",
+    });
 
     // CPPUTEST_USE_GCOV, -lgcov
     exe.addCSourceFiles(&.{
